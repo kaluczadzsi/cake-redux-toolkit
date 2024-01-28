@@ -5,9 +5,7 @@ import { icecreamActions } from './features/icecream/icecreamSlice';
 const App = () => {
   console.log('Initial state', store.getState());
 
-  const unsubscribe = store.subscribe(() =>
-    console.log('Updated state', store.getState())
-  );
+  const unsubscribe = store.subscribe(() => {});
 
   store.dispatch(cakeActions.ordered());
   store.dispatch(cakeActions.ordered());
@@ -15,8 +13,6 @@ const App = () => {
   store.dispatch(cakeActions.ordered());
   store.dispatch(cakeActions.restocked(20));
 
-  store.dispatch(icecreamActions.ordered());
-  store.dispatch(icecreamActions.ordered());
   store.dispatch(icecreamActions.ordered());
   store.dispatch(icecreamActions.ordered());
   store.dispatch(icecreamActions.restock(39));
