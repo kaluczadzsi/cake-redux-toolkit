@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { cakeActions } from '../cake/cakeSlice';
 
 const initialState = {
   numOfIcecreams: 20,
@@ -14,6 +15,11 @@ const icecreamSlice = createSlice({
     restock: (state, action) => {
       state.numOfIcecreams += action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(cakeActions.ordered, (state) => {
+      state.numOfIcecreams--;
+    });
   },
 });
 

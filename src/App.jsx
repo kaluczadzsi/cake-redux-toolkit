@@ -1,22 +1,15 @@
+import { fetchUsers } from './features/user/userSlice';
 import { store } from './store';
-import { cakeActions } from './features/cake/cakeSlice';
-import { icecreamActions } from './features/icecream/icecreamSlice';
+// import { cakeActions } from './features/cake/cakeSlice';
+// import { icecreamActions } from './features/icecream/icecreamSlice';
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+store.dispatch(fetchUsers());
 
 const App = () => {
-  console.log('Initial state', store.getState());
-
-  const unsubscribe = store.subscribe(() => {});
-
-  store.dispatch(cakeActions.ordered());
-  store.dispatch(cakeActions.ordered());
-  store.dispatch(cakeActions.ordered());
-  store.dispatch(cakeActions.ordered());
-  store.dispatch(cakeActions.restocked(20));
-
-  store.dispatch(icecreamActions.ordered());
-  store.dispatch(icecreamActions.ordered());
-  store.dispatch(icecreamActions.restock(39));
-
   return <div>App</div>;
 };
 
